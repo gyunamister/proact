@@ -92,6 +92,7 @@
         "@types/papaparse": "^5.3.7",
         "@types/react-cytoscapejs": "^1.2.2",
         "@types/redux-logger": "^3.0.9",
+        "@types/uuid": "^9.0.2",
         "cross-env": "^7.0.3",
         "web-worker": "^1.2.0"
     }
