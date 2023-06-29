@@ -5,7 +5,7 @@ ONBUILD WORKDIR /proact/fastapi
 
 FROM common_pre_build as prod_build
 ONBUILD COPY src/ src/
-ONBUILD COPY data/uploaded/*.jsonocel data/uploaded/
+# ONBUILD COPY data/uploaded/*.jsonocel data/uploaded/
 
 FROM common_pre_build as dev_build
 ONBUILD ENV DEV=1
