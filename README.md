@@ -1,19 +1,16 @@
-# ProAct - Enhancing the Discovery of Directly Follows Multigraphs
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+# ProAct - A tool for Action-Oriented Process Mining: Turning Events to Actions
 
 ## Requirements
 - docker, docker-compose
 
 ## Getting started
-- Syntax:
+  **Note**: *The following automated deployment is currently only available in **Windows** and **Linux**. MacOS users need to follow development setup.*
   - `./app.sh --start optional/path/to/event/logs/`: start app in production mode and optionally specify path to a folder containing event logs to mount into the application
   - `./app.sh --start-dev`: start app in development mode
   - `./app.sh --stop`: stop app
   - `./app.sh --remove`: remove created containers, networks, volumes
 
-## Development - Backend
+## Development Setup - Backend
 
 ### Requirements
 - python >=3.10 (for running native variant)
@@ -31,10 +28,10 @@ Let people know what your project can do specifically. Provide context and add a
 - `docker-compose -f docker-compose.yml -f docker-compose.dev.yml up --build --detach redis`
 
 ### 2. Celery
-
+**Note**: *MacOS >M1 users need to follow **Native** as Docker has issues with an issue with Numpy library*
 #### Native (this does __not__ work on Windows as Celery doesn't fully support Windows)
 - `cd backend/`
-- `PYTHONPATH="src/" celery -A worker.main.app worker --loglevel=INFO`
+- ``PYTHONPATH="src/" celery -A worker.main.app worker --loglevel=INFO``
 
 #### Docker
 - `docker-compose build _backend_base && docker-compose -f docker-compose.yml -f docker-compose.dev.yml up --build --detach celery`
@@ -44,10 +41,10 @@ is mounted into the container. There's no need to rebuild the image or recreate 
 a simple restart is enough.
 
 ### 3. Fastapi
-
+**Note**: *MacOS >M1 users need to follow **Native** as Docker has issues with an issue with Numpy library*
 #### Native
 - `cd backend/`
-- Start the backend server: `PYTHONPATH="src/" DEV=1 uvicorn server.main:app --host 0.0.0.0`
+- Start the backend server: `PYTHONPATH="src/" DEV=1 uvicorn server.main:app --host 0.0.0.0 --port 8080`
 - See backend address in terminal output
 
 #### Docker
@@ -73,7 +70,7 @@ a simple restart is enough.
     - Set the working directory to the `backend/` directory
 - You might need to tell PyCharm that these projects are part of a larger repository, to do so, go into Settings > Version Control > Directory Mappings
 
-## Development - Frontend
+## Development Setup - Frontend
 
 ### Requirements
 - Nodejs
@@ -91,12 +88,15 @@ a simple restart is enough.
 #### Docker
 - `docker-compose -f docker-compose.yml -f docker-compose.dev.yml up --build --detach webserver`
 
+The app runs in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
 ### Frontend IDE Alternative
 - Install Jetbrains WebStorm
 - In WebStorm: `File > Open` and select the frontend folder, let Webstorm automatically install dependencies
 - You might need to tell WebStorm that these projects are part of a larger repository, to do so, go into Settings > Version Control > Directory Mappings
 
-## General
+## Appendix
 
 ### Docker
 ![Docker Strategy Overview](docs/images/docker_strategy_overview.png "Docker Strategy Overview")
