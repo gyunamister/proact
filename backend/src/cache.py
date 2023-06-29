@@ -278,8 +278,9 @@ def hash_path(path: str) -> str:
     return hash(PureWindowsPath(path).as_posix())
 # endregion
 
+from datetime import datetime
 
-def make_json_serilizable(data: Dict[str, Any] | List[Any] | BaseModel | str | int | float):
+def make_json_serilizable(data):
     if isinstance(data, list):
         return [make_json_serilizable(x) for x in data]
     elif isinstance(data, dict):
@@ -288,5 +289,7 @@ def make_json_serilizable(data: Dict[str, Any] | List[Any] | BaseModel | str | i
         return make_json_serilizable(data.dict())
     elif is_dataclass(data):
         return make_json_serilizable(asdict(data))
+    elif isinstance(data, datetime):    # Add this clause
+        return data.isoformat()
     else:
-        return data # Assume the remaining cases are json-compatible atomic values
+        return data # Assume the remaining cases are json-compatible atomic valuess
