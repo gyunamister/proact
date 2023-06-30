@@ -6,6 +6,8 @@ ONBUILD WORKDIR /proact/celery
 FROM common_pre_build as prod_build
 ONBUILD COPY src/ src/
 ONBUILD COPY data/uploaded/p2p-historical-log.jsonocel data/uploaded/p2p-historical-log.jsonocel
+ONBUILD COPY data/uploaded/p2p-monitoring-log.jsonocel data/uploaded/p2p-monitoring-log.jsonocel
+ONBUILD COPY data/uploaded/p2p-post-action-log.jsonocel data/uploaded/p2p-post-action-log.jsonocel
 
 FROM common_pre_build as dev_build
 
