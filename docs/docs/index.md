@@ -1,27 +1,14 @@
-# Welcome to MkDocs
+# Welcome to ProAct
+## "ProAct is a Tool for Action-Oriented Process Mining: Turning Events to Actions"
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+*Action-oriented process mining* focuses on generating necessary management actions that enhance business processes' performance. These actions are derived by analyzing event data through process mining techniques. **ProAct** is a tool that supports action-oriented process mining.
 
-## Commands
+ProAct is comprised of three main components:
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+* **ProAct: Monitoring Engine** - This part of ProAct works by creating constraint instances from user-provided event logs and constraint graphs.
 
-## Project layout
+* **ProAct: Action Engine** - This engine processes the constraint instances along with user-designed action graphs to generate action instances.
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+* **ProAct: Impact Analysis** - Finally, this component uses action instances and event logs supplied by the user to calculate the impact of the action instance.
 
-## Event Log Management
-
-## Process Analysis
-
-## Constraint Monitoring
-
-## Action Engine
-
-## Impact Analysis
+With ProAct, you can effectively utilize action-oriented process mining to improve your business processes. Each component of the tool plays a critical role in the analysis process, ultimately providing you with data-driven actions to enhance your business performance.
