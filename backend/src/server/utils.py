@@ -46,5 +46,4 @@ def secure_ocel_filename(file: str) -> str:
                             detail="The file must not contain any path traversals.")
     if not os.path.isfile(abs_file):
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="The specified file does not exist.")
-    print(os.path.join("data", file))
     return os.path.join("data", file)

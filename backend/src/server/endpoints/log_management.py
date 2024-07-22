@@ -262,7 +262,6 @@ def get_timeline(file_path: str):
     ocel = get_ocel(file_path_extended)
     start_timestamp = str(ocel.log.log['event_timestamp'].min())
     end_timestamp = str(ocel.log.log['event_timestamp'].max())
-    print(start_timestamp, end_timestamp)
     return [start_timestamp, end_timestamp]
 
 @router.get('/csv_data')
